@@ -18,4 +18,17 @@ public class UsuarioService {
         //SELECT * FROM USUARIO;
         return usuarioRepository.findAll();
     }
+    public Usuario salvarUsuario(Usuario usuario){
+        //INSERT INTO USUARIO (ID, NOME, EMAIL) VALUES (id, nome, email)
+        return usuarioRepository.save(usuario);
+    }
+
+    public Usuario buscarPorId(Long id){
+        //SELECT * FROM USUARIO WHERE ID = id;
+        return usuarioRepository.findById(id).orElse(null);
+    }
+    public void excluirUsuario(Long id){
+        //DELETE * FROM USUARIO WHERE ID = id
+        usuarioRepository.deleteById(id);
+    }
 }
